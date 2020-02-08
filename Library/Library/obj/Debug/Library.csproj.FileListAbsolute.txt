@@ -1,0 +1,16 @@
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.csprojAssemblyReference.cache
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Forms.LoginForm.resources
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Properties.Resources.resources
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.csproj.GenerateResource.cache
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\bin\Debug\Library.exe.config
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\bin\Debug\Library.exe
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\bin\Debug\Library.pdb
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\bin\Debug\EntityFramework.dll
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\bin\Debug\EntityFramework.xml
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.csproj.CopyComplete
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.exe
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.pdb
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Migrations.ClientAndManagermodelsAddedAndLoginFormisCreated.resources
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Forms.DashboardForm.resources
