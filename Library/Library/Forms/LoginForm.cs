@@ -44,8 +44,8 @@ namespace Library.Forms
 
             if (manager != null)
             {
-                DashboardForm dashboard = new DashboardForm();
-                dashboard.Show();
+                //DashboardForm dashboard = new DashboardForm();
+                //dashboard.Show();
                 this.Hide();
 
                 return;

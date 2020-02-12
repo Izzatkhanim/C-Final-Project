@@ -13,10 +13,13 @@ using System.Data.SqlClient;
 
 namespace Library.Forms
 {
-    public partial class DashboardForm : Form
+    public partial class Dashboard : Form
     {
-        private readonly LibraryDbContext _context; 
-        public DashboardForm()
+        private readonly LibraryDbContext _context;
+        private Client _selectedClient;
+        private Book _selectedBook;
+       
+        public Dashboard()
         {
             _context = new LibraryDbContext();
             InitializeComponent();
@@ -34,6 +37,7 @@ namespace Library.Forms
                 DgvCart.Rows.Add(item.Id,
                                  item.Client.Name,
                                  item.Client.Lastname,
+                                 item.Client.Email,
                                  item.Book.Title,
                                  item.Deadline);
             }
@@ -148,21 +152,60 @@ namespace Library.Forms
 
         private void BtnClientDelete_Click(object sender, EventArgs e)
         {
-            DgvClientSearch.Rows.RemoveAt(DgvClientSearch.SelectedRows[0].Index);
+            _context.Clients.Remove(_selectedClient);
             _context.SaveChanges();
-        }
+            DgvClientSearch.Rows.Clear();
+            FillClientData();
+
+         }
 
         private void BtnBookDelete_Click(object sender, EventArgs e)
         {
-            DgvClientSearch.Rows.RemoveAt(DgvClientSearch.SelectedRows[0].Index);
+            _context.Books.Remove(_selectedBook);
             _context.SaveChanges();
+            DgvBookSearch.Rows.Clear();
+            FillBookData();
         }
 
         private void BtnClientOrder_Click(object sender, EventArgs e)
         {
-      
+
+            DgvCart.Rows.Add(_selectedClient.Name,
+                             _selectedClient.Lastname,
+                             _selectedClient.Email,
+                             _selectedBook.Title,
+                               DtpDeadline.Value);
+         
+            
+           
+        }
+    
+
+                       
+        private void DgvOrderClient_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = Convert.ToInt32(DgvOrderClient.Rows[e.RowIndex].Cells[0].Value.ToString());
+            _selectedClient = _context.Clients.Find(id);
+            
         }
 
+        private void DgvOrderBook_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = Convert.ToInt32(DgvOrderBook.Rows[e.RowIndex].Cells[0].Value.ToString());
+            _selectedBook = _context.Books.Find(id);
         }
+
+        private void DgvClientSearch_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        { 
+            int id = Convert.ToInt32(DgvClientSearch.Rows[e.RowIndex].Cells[0].Value.ToString());
+            _selectedClient = _context.Clients.Find(id);
+        }
+
+        private void DgvBookSearch_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int id = Convert.ToInt32(DgvBookSearch.Rows[e.RowIndex].Cells[0].Value.ToString());
+            _selectedBook = _context.Books.Find(id);
+        }
+    }
 }
 
