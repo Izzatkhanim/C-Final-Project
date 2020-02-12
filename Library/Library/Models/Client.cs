@@ -31,5 +31,7 @@ namespace Library.Models
 
         [Required]
         public bool Status { get; set; }
+       
+        public Book Book{ get; set; }
     }
 }

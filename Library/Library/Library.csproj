@@ -58,6 +58,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\LibraryDbContext.cs" />
+    <Compile Include="Forms\BookAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BookAddForm.Designer.cs">
+      <DependentUpon>BookAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ClientAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ClientAddForm.Designer.cs">
+      <DependentUpon>ClientAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,11 +86,39 @@
     <Compile Include="Migrations\202002082135368_ClientAndManagermodelsAddedAndLoginFormisCreated.designer.cs">
       <DependentUpon>202002082135368_ClientAndManagermodelsAddedAndLoginFormisCreated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002101535460_BookModelAndClientsAdded.cs" />
+    <Compile Include="Migrations\202002101535460_BookModelAndClientsAdded.designer.cs">
+      <DependentUpon>202002101535460_BookModelAndClientsAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002101546308_BookModelfixed.cs" />
+    <Compile Include="Migrations\202002101546308_BookModelfixed.designer.cs">
+      <DependentUpon>202002101546308_BookModelfixed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002102049300_OrderModelAdded.cs" />
+    <Compile Include="Migrations\202002102049300_OrderModelAdded.designer.cs">
+      <DependentUpon>202002102049300_OrderModelAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002102053393_OrderModelFixed.cs" />
+    <Compile Include="Migrations\202002102053393_OrderModelFixed.designer.cs">
+      <DependentUpon>202002102053393_OrderModelFixed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002102056566_ForeignKeyAdded.cs" />
+    <Compile Include="Migrations\202002102056566_ForeignKeyAdded.designer.cs">
+      <DependentUpon>202002102056566_ForeignKeyAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Manager.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\BookAddForm.resx">
+      <DependentUpon>BookAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ClientAddForm.resx">
+      <DependentUpon>ClientAddForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +127,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002082135368_ClientAndManagermodelsAddedAndLoginFormisCreated.resx">
       <DependentUpon>202002082135368_ClientAndManagermodelsAddedAndLoginFormisCreated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002101535460_BookModelAndClientsAdded.resx">
+      <DependentUpon>202002101535460_BookModelAndClientsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002101546308_BookModelfixed.resx">
+      <DependentUpon>202002101546308_BookModelfixed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002102049300_OrderModelAdded.resx">
+      <DependentUpon>202002102049300_OrderModelAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002102053393_OrderModelFixed.resx">
+      <DependentUpon>202002102053393_OrderModelFixed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002102056566_ForeignKeyAdded.resx">
+      <DependentUpon>202002102056566_ForeignKeyAdded.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

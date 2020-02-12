@@ -14,3 +14,10 @@ C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.exe
 C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.pdb
 C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Migrations.ClientAndManagermodelsAddedAndLoginFormisCreated.resources
 C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Forms.DashboardForm.resources
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Migrations.BookModelAndClientsAdded.resources
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Migrations.BookModelfixed.resources
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Forms.ClientAddForm.resources
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Forms.BookAddForm.resources
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Migrations.OrderModelAdded.resources
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Migrations.OrderModelFixed.resources
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Migrations.ForeignKeyAdded.resources

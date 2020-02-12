@@ -29,7 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.BtnClientOrder = new System.Windows.Forms.Button();
+            this.BtnBookDelete = new System.Windows.Forms.Button();
+            this.BtnClientDelete = new System.Windows.Forms.Button();
+            this.BtnAddBook = new System.Windows.Forms.Button();
+            this.BtnAddClient = new System.Windows.Forms.Button();
+            this.BtnBookSearch = new System.Windows.Forms.Button();
+            this.BtnClientSearch = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.DgvBookSearch = new System.Windows.Forms.DataGridView();
             this.BoookId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,26 +50,46 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReturnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DgvClientSearch = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Books = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnClientOrder = new System.Windows.Forms.Button();
             this.BtnOrder = new System.Windows.Forms.Button();
             this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
-            this.BtnClientSearch = new System.Windows.Forms.Button();
-            this.BtnBookSearch = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.DgvOrderClient = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClientEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.DgvOrderBook = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DtpDeadline = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvBookSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvCart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvClientSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvOrderClient)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvOrderBook)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.BtnBookDelete);
+            this.panel1.Controls.Add(this.BtnClientDelete);
+            this.panel1.Controls.Add(this.BtnAddBook);
+            this.panel1.Controls.Add(this.BtnAddClient);
             this.panel1.Controls.Add(this.BtnBookSearch);
             this.panel1.Controls.Add(this.BtnClientSearch);
-            this.panel1.Controls.Add(this.BtnClientOrder);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.DgvBookSearch);
             this.panel1.Controls.Add(this.label2);
@@ -78,23 +103,74 @@
             this.panel1.Size = new System.Drawing.Size(769, 1219);
             this.panel1.TabIndex = 0;
             // 
-            // BtnClientOrder
+            // BtnBookDelete
             // 
-            this.BtnClientOrder.Location = new System.Drawing.Point(269, 1096);
-            this.BtnClientOrder.Name = "BtnClientOrder";
-            this.BtnClientOrder.Size = new System.Drawing.Size(180, 88);
-            this.BtnClientOrder.TabIndex = 7;
-            this.BtnClientOrder.Text = "Order";
-            this.BtnClientOrder.UseVisualStyleBackColor = true;
+            this.BtnBookDelete.Location = new System.Drawing.Point(559, 448);
+            this.BtnBookDelete.Name = "BtnBookDelete";
+            this.BtnBookDelete.Size = new System.Drawing.Size(125, 43);
+            this.BtnBookDelete.TabIndex = 11;
+            this.BtnBookDelete.Text = "Delete Book";
+            this.BtnBookDelete.UseVisualStyleBackColor = true;
+            this.BtnBookDelete.Click += new System.EventHandler(this.BtnBookDelete_Click);
+            // 
+            // BtnClientDelete
+            // 
+            this.BtnClientDelete.Location = new System.Drawing.Point(559, 58);
+            this.BtnClientDelete.Name = "BtnClientDelete";
+            this.BtnClientDelete.Size = new System.Drawing.Size(125, 40);
+            this.BtnClientDelete.TabIndex = 11;
+            this.BtnClientDelete.Text = "Delete Client";
+            this.BtnClientDelete.UseVisualStyleBackColor = true;
+            this.BtnClientDelete.Click += new System.EventHandler(this.BtnClientDelete_Click);
+            // 
+            // BtnAddBook
+            // 
+            this.BtnAddBook.Location = new System.Drawing.Point(428, 448);
+            this.BtnAddBook.Name = "BtnAddBook";
+            this.BtnAddBook.Size = new System.Drawing.Size(114, 43);
+            this.BtnAddBook.TabIndex = 10;
+            this.BtnAddBook.Text = "Add Book";
+            this.BtnAddBook.UseVisualStyleBackColor = true;
+            this.BtnAddBook.Click += new System.EventHandler(this.BtnAddBook_Click);
+            // 
+            // BtnAddClient
+            // 
+            this.BtnAddClient.Location = new System.Drawing.Point(428, 58);
+            this.BtnAddClient.Name = "BtnAddClient";
+            this.BtnAddClient.Size = new System.Drawing.Size(114, 40);
+            this.BtnAddClient.TabIndex = 10;
+            this.BtnAddClient.Text = "Add Client";
+            this.BtnAddClient.UseVisualStyleBackColor = true;
+            this.BtnAddClient.Click += new System.EventHandler(this.BtnAddClient_Click);
+            // 
+            // BtnBookSearch
+            // 
+            this.BtnBookSearch.Location = new System.Drawing.Point(297, 448);
+            this.BtnBookSearch.Name = "BtnBookSearch";
+            this.BtnBookSearch.Size = new System.Drawing.Size(116, 43);
+            this.BtnBookSearch.TabIndex = 9;
+            this.BtnBookSearch.Text = "Search";
+            this.BtnBookSearch.UseVisualStyleBackColor = true;
+            this.BtnBookSearch.Click += new System.EventHandler(this.BtnBookSearch_Click);
+            // 
+            // BtnClientSearch
+            // 
+            this.BtnClientSearch.Location = new System.Drawing.Point(297, 58);
+            this.BtnClientSearch.Name = "BtnClientSearch";
+            this.BtnClientSearch.Size = new System.Drawing.Size(116, 40);
+            this.BtnClientSearch.TabIndex = 8;
+            this.BtnClientSearch.Text = "Search";
+            this.BtnClientSearch.UseVisualStyleBackColor = true;
+            this.BtnClientSearch.Click += new System.EventHandler(this.BtnClientSearch_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 798);
+            this.label3.Location = new System.Drawing.Point(30, 857);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 20);
+            this.label3.Size = new System.Drawing.Size(57, 20);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Order";
+            this.label3.Text = "Orders";
             // 
             // DgvBookSearch
             // 
@@ -159,14 +235,14 @@
             // 
             this.TxtBookSearch.Location = new System.Drawing.Point(28, 456);
             this.TxtBookSearch.Name = "TxtBookSearch";
-            this.TxtBookSearch.Size = new System.Drawing.Size(322, 26);
+            this.TxtBookSearch.Size = new System.Drawing.Size(250, 26);
             this.TxtBookSearch.TabIndex = 2;
             // 
             // TxtClientSearch
             // 
             this.TxtClientSearch.Location = new System.Drawing.Point(34, 65);
             this.TxtClientSearch.Name = "TxtClientSearch";
-            this.TxtClientSearch.Size = new System.Drawing.Size(322, 26);
+            this.TxtClientSearch.Size = new System.Drawing.Size(244, 26);
             this.TxtClientSearch.TabIndex = 2;
             // 
             // DgvCart
@@ -177,8 +253,9 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.DgvCart.Location = new System.Drawing.Point(24, 839);
+            this.dataGridViewTextBoxColumn4,
+            this.ReturnDate});
+            this.DgvCart.Location = new System.Drawing.Point(28, 882);
             this.DgvCart.Name = "DgvCart";
             this.DgvCart.RowHeadersWidth = 62;
             this.DgvCart.RowTemplate.Height = 28;
@@ -209,6 +286,12 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Books";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // ReturnDate
+            // 
+            this.ReturnDate.HeaderText = "Return Date";
+            this.ReturnDate.MinimumWidth = 8;
+            this.ReturnDate.Name = "ReturnDate";
             // 
             // DgvClientSearch
             // 
@@ -251,6 +334,16 @@
             this.Books.MinimumWidth = 8;
             this.Books.Name = "Books";
             // 
+            // BtnClientOrder
+            // 
+            this.BtnClientOrder.Location = new System.Drawing.Point(1803, 467);
+            this.BtnClientOrder.Name = "BtnClientOrder";
+            this.BtnClientOrder.Size = new System.Drawing.Size(131, 48);
+            this.BtnClientOrder.TabIndex = 7;
+            this.BtnClientOrder.Text = "New Order";
+            this.BtnClientOrder.UseVisualStyleBackColor = true;
+            this.BtnClientOrder.Click += new System.EventHandler(this.BtnClientOrder_Click);
+            // 
             // BtnOrder
             // 
             this.BtnOrder.Location = new System.Drawing.Point(12, 579);
@@ -266,38 +359,162 @@
             this.directorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
             this.directorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
             // 
-            // BtnClientSearch
+            // label4
             // 
-            this.BtnClientSearch.Location = new System.Drawing.Point(469, 58);
-            this.BtnClientSearch.Name = "BtnClientSearch";
-            this.BtnClientSearch.Size = new System.Drawing.Size(116, 40);
-            this.BtnClientSearch.TabIndex = 8;
-            this.BtnClientSearch.Text = "Search";
-            this.BtnClientSearch.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.Font = new System.Drawing.Font("Schadow BT", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(1444, 38);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(268, 54);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "New Order";
             // 
-            // BtnBookSearch
+            // DgvOrderClient
             // 
-            this.BtnBookSearch.Location = new System.Drawing.Point(469, 448);
-            this.BtnBookSearch.Name = "BtnBookSearch";
-            this.BtnBookSearch.Size = new System.Drawing.Size(116, 43);
-            this.BtnBookSearch.TabIndex = 9;
-            this.BtnBookSearch.Text = "Search";
-            this.BtnBookSearch.UseVisualStyleBackColor = true;
+            this.DgvOrderClient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgvOrderClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvOrderClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.ClientEmail});
+            this.DgvOrderClient.Location = new System.Drawing.Point(882, 195);
+            this.DgvOrderClient.Name = "DgvOrderClient";
+            this.DgvOrderClient.RowHeadersWidth = 62;
+            this.DgvOrderClient.RowTemplate.Height = 28;
+            this.DgvOrderClient.Size = new System.Drawing.Size(656, 201);
+            this.DgvOrderClient.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Lastname";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // ClientEmail
+            // 
+            this.ClientEmail.HeaderText = "Email";
+            this.ClientEmail.MinimumWidth = 8;
+            this.ClientEmail.Name = "ClientEmail";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(878, 159);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(68, 26);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Client";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(1629, 158);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 26);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Book";
+            // 
+            // DgvOrderBook
+            // 
+            this.DgvOrderBook.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgvOrderBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvOrderBook.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11});
+            this.DgvOrderBook.Location = new System.Drawing.Point(1634, 195);
+            this.DgvOrderBook.Name = "DgvOrderBook";
+            this.DgvOrderBook.RowHeadersWidth = 62;
+            this.DgvOrderBook.RowTemplate.Height = 28;
+            this.DgvOrderBook.Size = new System.Drawing.Size(664, 201);
+            this.DgvOrderBook.TabIndex = 5;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "Title";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "Author";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "Genre";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            // 
+            // DtpDeadline
+            // 
+            this.DtpDeadline.Location = new System.Drawing.Point(1444, 487);
+            this.DtpDeadline.Name = "DtpDeadline";
+            this.DtpDeadline.Size = new System.Drawing.Size(290, 26);
+            this.DtpDeadline.TabIndex = 11;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(1541, 450);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(98, 26);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Deadline";
             // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2126, 1264);
+            this.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.ClientSize = new System.Drawing.Size(2249, 1264);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.DtpDeadline);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.BtnOrder);
-            this.Text = "DashboardForm";
+            this.Controls.Add(this.BtnClientOrder);
+            this.Controls.Add(this.DgvOrderClient);
+            this.Controls.Add(this.DgvOrderBook);
+            this.Text = "Library Management";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvBookSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvCart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvClientSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvOrderClient)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvOrderBook)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -329,5 +546,25 @@
         private System.DirectoryServices.DirectorySearcher directorySearcher1;
         private System.Windows.Forms.Button BtnBookSearch;
         private System.Windows.Forms.Button BtnClientSearch;
+        private System.Windows.Forms.Button BtnAddBook;
+        private System.Windows.Forms.Button BtnAddClient;
+        private System.Windows.Forms.Button BtnBookDelete;
+        private System.Windows.Forms.Button BtnClientDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReturnDate;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView DgvOrderClient;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClientEmail;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridView DgvOrderBook;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DateTimePicker DtpDeadline;
+        private System.Windows.Forms.Label label7;
     }
 }
