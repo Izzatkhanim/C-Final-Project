@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnOrderSearch = new System.Windows.Forms.Button();
+            this.TxtOrderSearch = new System.Windows.Forms.TextBox();
             this.BtnReturnBook = new System.Windows.Forms.Button();
             this.BtnBookDelete = new System.Windows.Forms.Button();
             this.BtnClientDelete = new System.Windows.Forms.Button();
@@ -89,6 +91,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.BtnOrderSearch);
+            this.panel1.Controls.Add(this.TxtOrderSearch);
             this.panel1.Controls.Add(this.BtnReturnBook);
             this.panel1.Controls.Add(this.BtnBookDelete);
             this.panel1.Controls.Add(this.BtnClientDelete);
@@ -109,11 +113,28 @@
             this.panel1.Size = new System.Drawing.Size(769, 1219);
             this.panel1.TabIndex = 0;
             // 
+            // BtnOrderSearch
+            // 
+            this.BtnOrderSearch.Location = new System.Drawing.Point(392, 819);
+            this.BtnOrderSearch.Name = "BtnOrderSearch";
+            this.BtnOrderSearch.Size = new System.Drawing.Size(124, 46);
+            this.BtnOrderSearch.TabIndex = 14;
+            this.BtnOrderSearch.Text = "Search";
+            this.BtnOrderSearch.UseVisualStyleBackColor = true;
+            this.BtnOrderSearch.Click += new System.EventHandler(this.BtnOrderSearch_Click);
+            // 
+            // TxtOrderSearch
+            // 
+            this.TxtOrderSearch.Location = new System.Drawing.Point(34, 829);
+            this.TxtOrderSearch.Name = "TxtOrderSearch";
+            this.TxtOrderSearch.Size = new System.Drawing.Size(312, 26);
+            this.TxtOrderSearch.TabIndex = 13;
+            // 
             // BtnReturnBook
             // 
-            this.BtnReturnBook.Location = new System.Drawing.Point(28, 1125);
+            this.BtnReturnBook.Location = new System.Drawing.Point(553, 819);
             this.BtnReturnBook.Name = "BtnReturnBook";
-            this.BtnReturnBook.Size = new System.Drawing.Size(140, 52);
+            this.BtnReturnBook.Size = new System.Drawing.Size(131, 46);
             this.BtnReturnBook.TabIndex = 12;
             this.BtnReturnBook.Text = "Book Return";
             this.BtnReturnBook.UseVisualStyleBackColor = true;
@@ -182,7 +203,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(30, 857);
+            this.label3.Location = new System.Drawing.Point(30, 806);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 20);
             this.label3.TabIndex = 6;
@@ -554,7 +575,6 @@
             this.Controls.Add(this.BtnClientOrder);
             this.Controls.Add(this.DgvOrderClient);
             this.Controls.Add(this.DgvOrderBook);
-            this.Name = "Dashboard";
             this.Text = "Library Management";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -622,5 +642,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn GenreName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.Button BtnReturnBook;
+        private System.Windows.Forms.Button BtnOrderSearch;
+        private System.Windows.Forms.TextBox TxtOrderSearch;
     }
 }

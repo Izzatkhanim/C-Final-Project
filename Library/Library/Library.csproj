@@ -110,7 +110,12 @@
     <Compile Include="Migrations\202002131535480_PriceAddedToBooksModels.designer.cs">
       <DependentUpon>202002131535480_PriceAddedToBooksModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002131713081_ArchiveModelAdded.cs" />
+    <Compile Include="Migrations\202002131713081_ArchiveModelAdded.designer.cs">
+      <DependentUpon>202002131713081_ArchiveModelAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Archive.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Manager.cs" />
@@ -149,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002131535480_PriceAddedToBooksModels.resx">
       <DependentUpon>202002131535480_PriceAddedToBooksModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002131713081_ArchiveModelAdded.resx">
+      <DependentUpon>202002131713081_ArchiveModelAdded.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

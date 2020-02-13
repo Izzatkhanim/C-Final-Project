@@ -21,8 +21,7 @@ namespace Library.Data
             public DbSet<Client> Clients { get; set; }
             public DbSet<Book> Books { get; set; }
             public DbSet<Order> Orders { get; set; }
-
-
+            public DbSet<Archive> Archives { get; set; }
     }
     }
 

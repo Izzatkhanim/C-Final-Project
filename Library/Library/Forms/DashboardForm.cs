@@ -247,7 +247,47 @@ namespace Library.Forms
                 {
                     MessageBox.Show("Please choose an order.");
                 }
+
+                Archive archive = new Archive
+                {
+                    OrderId = _selectedOrder.Id
+                };
+                _context.Archives.Add(archive);
+                _context.SaveChanges();
+
+                //_context.Orders.Remove(_selectedOrder);
+                //_context.SaveChanges();
+                //DgvCart.Rows.Clear();
+                //FillOrderData();
             }          
+        }
+
+        private void BtnOrderSearch_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(TxtOrderSearch.Text))
+            {
+                MessageBox.Show("Please enter the client's name.");
+                return;
+            }
+
+            var order = _context.Orders.Where(o =>
+                                             (TxtOrderSearch.Text != string.Empty ?
+                                               o.Client.Name.Contains(TxtOrderSearch.Text) : false))
+                                               .ToList();
+
+            DgvCart.Rows.Clear();
+
+            foreach (var item in order)
+            {
+                DgvCart.Rows.Add(item.Id,
+                                 item.Client.Name,
+                                 item.Client.Lastname,
+                                 item.Client.Email,
+                                 item.Book.Title,
+                                 item.Date,
+                                 item.Deadline,
+                                 item.Book.Price);
+            }
         }
     }
 }
