@@ -21,3 +21,4 @@ C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.csproj.Copy
 C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.exe
 C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.pdb
 C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Forms.Dashboard.resources
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Migrations.PriceAddedToBooksModels.resources

@@ -106,6 +106,10 @@
     <Compile Include="Migrations\202002102056566_ForeignKeyAdded.designer.cs">
       <DependentUpon>202002102056566_ForeignKeyAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002131535480_PriceAddedToBooksModels.cs" />
+    <Compile Include="Migrations\202002131535480_PriceAddedToBooksModels.designer.cs">
+      <DependentUpon>202002131535480_PriceAddedToBooksModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Client.cs" />
@@ -142,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002102056566_ForeignKeyAdded.resx">
       <DependentUpon>202002102056566_ForeignKeyAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002131535480_PriceAddedToBooksModels.resx">
+      <DependentUpon>202002131535480_PriceAddedToBooksModels.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -18,7 +18,9 @@ namespace Library.Forms
         private readonly LibraryDbContext _context;
         private Client _selectedClient;
         private Book _selectedBook;
-       
+        private Order _selectedOrder;
+
+
         public Dashboard()
         {
             _context = new LibraryDbContext();
@@ -39,7 +41,9 @@ namespace Library.Forms
                                  item.Client.Lastname,
                                  item.Client.Email,
                                  item.Book.Title,
-                                 item.Deadline);
+                                 item.Date,
+                                 item.Deadline,
+                                 item.Book.Price);
             }
         }
 
@@ -73,7 +77,8 @@ namespace Library.Forms
                 DgvBookSearch.Rows.Add(item.Id,
                                          item.Title,
                                          item.Author,
-                                         item.Genre);
+                                         item.Genre,
+                                         item.Price);
             }
 
             foreach (var item in ShowBooks)
@@ -81,7 +86,8 @@ namespace Library.Forms
                 DgvOrderBook.Rows.Add(item.Id,
                                          item.Title,
                                          item.Author,
-                                         item.Genre);
+                                         item.Genre,
+                                         item.Price);
             }
         }
 
@@ -169,19 +175,29 @@ namespace Library.Forms
 
         private void BtnClientOrder_Click(object sender, EventArgs e)
         {
-
-            DgvCart.Rows.Add(_selectedClient.Name,
+            
+            DgvCart.Rows.Add(_selectedClient.Id,
+                             _selectedClient.Name,
                              _selectedClient.Lastname,
                              _selectedClient.Email,
                              _selectedBook.Title,
-                               DtpDeadline.Value);
-         
-            
-           
-        }
-    
+                              DateTime.Now.ToString("MM.dd.yyyy"),
+                              DtpDeadline.Value,
+                              _selectedBook.Price);
 
-                       
+            Order order = new Order
+            {
+                ClientId = _selectedClient.Id,
+                Date = DateTime.Now,
+                Deadline = DtpDeadline.Value,
+                BookId = _selectedBook.Id
+
+
+            };
+            _context.Orders.Add(order);
+            _context.SaveChanges();
+        }
+                                 
         private void DgvOrderClient_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int id = Convert.ToInt32(DgvOrderClient.Rows[e.RowIndex].Cells[0].Value.ToString());
@@ -205,6 +221,33 @@ namespace Library.Forms
         {
             int id = Convert.ToInt32(DgvBookSearch.Rows[e.RowIndex].Cells[0].Value.ToString());
             _selectedBook = _context.Books.Find(id);
+        }
+
+        private void DgvCart_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = Convert.ToInt32(DgvCart.Rows[e.RowIndex].Cells[0].Value.ToString());
+            _selectedOrder = _context.Orders.Find(id);
+        }
+
+        private void BtnReturnBook_Click(object sender, EventArgs e)
+        {   
+            double prc = Convert.ToInt32(_selectedOrder.Book.Price);
+
+            if (DgvCart.SelectedRows != null)
+            {
+                if (_selectedOrder.Deadline > DateTime.Now)
+                {
+                       MessageBox.Show("Your bill is" + " " + _selectedOrder.Book.Price);
+                }
+                else if(_selectedOrder.Deadline < DateTime.Now)
+                {
+                MessageBox.Show("Your bill is" + " " + ((prc*0.005)+prc));
+                }
+                else
+                {
+                    MessageBox.Show("Please choose an order.");
+                }
+            }          
         }
     }
 }

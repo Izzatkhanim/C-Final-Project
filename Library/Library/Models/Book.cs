@@ -25,5 +25,8 @@ namespace Library.Models
         [MaxLength(50)]
         public string Genre { get; set; }
 
+        [Required]
+         public decimal Price { get; set; }
+
     }
 }
