@@ -35,12 +35,16 @@
             this.TxtNewBookAuthor = new System.Windows.Forms.TextBox();
             this.TxtNewBookGenre = new System.Windows.Forms.TextBox();
             this.BtnAddNewBook = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.TxtNewBookCount = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.TxtNewBookPrice = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(150, 65);
+            this.label1.Location = new System.Drawing.Point(101, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 20);
             this.label1.TabIndex = 0;
@@ -49,7 +53,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(150, 184);
+            this.label2.Location = new System.Drawing.Point(453, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 20);
             this.label2.TabIndex = 1;
@@ -58,7 +62,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(150, 304);
+            this.label3.Location = new System.Drawing.Point(101, 145);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 20);
             this.label3.TabIndex = 2;
@@ -66,28 +70,28 @@
             // 
             // TxtNewBookTitle
             // 
-            this.TxtNewBookTitle.Location = new System.Drawing.Point(154, 88);
+            this.TxtNewBookTitle.Location = new System.Drawing.Point(105, 72);
             this.TxtNewBookTitle.Name = "TxtNewBookTitle";
             this.TxtNewBookTitle.Size = new System.Drawing.Size(219, 26);
             this.TxtNewBookTitle.TabIndex = 3;
             // 
             // TxtNewBookAuthor
             // 
-            this.TxtNewBookAuthor.Location = new System.Drawing.Point(154, 207);
+            this.TxtNewBookAuthor.Location = new System.Drawing.Point(457, 72);
             this.TxtNewBookAuthor.Name = "TxtNewBookAuthor";
             this.TxtNewBookAuthor.Size = new System.Drawing.Size(219, 26);
             this.TxtNewBookAuthor.TabIndex = 4;
             // 
             // TxtNewBookGenre
             // 
-            this.TxtNewBookGenre.Location = new System.Drawing.Point(154, 327);
+            this.TxtNewBookGenre.Location = new System.Drawing.Point(105, 168);
             this.TxtNewBookGenre.Name = "TxtNewBookGenre";
             this.TxtNewBookGenre.Size = new System.Drawing.Size(219, 26);
             this.TxtNewBookGenre.TabIndex = 5;
             // 
             // BtnAddNewBook
             // 
-            this.BtnAddNewBook.Location = new System.Drawing.Point(505, 180);
+            this.BtnAddNewBook.Location = new System.Drawing.Point(313, 357);
             this.BtnAddNewBook.Name = "BtnAddNewBook";
             this.BtnAddNewBook.Size = new System.Drawing.Size(155, 81);
             this.BtnAddNewBook.TabIndex = 6;
@@ -95,14 +99,50 @@
             this.BtnAddNewBook.UseVisualStyleBackColor = true;
             this.BtnAddNewBook.Click += new System.EventHandler(this.BtnAddNewBook_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(453, 145);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(52, 20);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Count";
+            // 
+            // TxtNewBookCount
+            // 
+            this.TxtNewBookCount.Location = new System.Drawing.Point(457, 168);
+            this.TxtNewBookCount.Name = "TxtNewBookCount";
+            this.TxtNewBookCount.Size = new System.Drawing.Size(219, 26);
+            this.TxtNewBookCount.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(273, 247);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 20);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Price";
+            // 
+            // TxtNewBookPrice
+            // 
+            this.TxtNewBookPrice.Location = new System.Drawing.Point(277, 270);
+            this.TxtNewBookPrice.Name = "TxtNewBookPrice";
+            this.TxtNewBookPrice.Size = new System.Drawing.Size(219, 26);
+            this.TxtNewBookPrice.TabIndex = 5;
+            // 
             // BookAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.BtnAddNewBook);
+            this.Controls.Add(this.TxtNewBookPrice);
+            this.Controls.Add(this.TxtNewBookCount);
             this.Controls.Add(this.TxtNewBookGenre);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.TxtNewBookAuthor);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.TxtNewBookTitle);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -123,5 +163,9 @@
         private System.Windows.Forms.TextBox TxtNewBookAuthor;
         private System.Windows.Forms.TextBox TxtNewBookGenre;
         private System.Windows.Forms.Button BtnAddNewBook;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox TxtNewBookCount;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox TxtNewBookPrice;
     }
 }

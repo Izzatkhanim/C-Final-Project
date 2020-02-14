@@ -23,3 +23,7 @@ C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.pdb
 C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Forms.Dashboard.resources
 C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Migrations.PriceAddedToBooksModels.resources
 C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Migrations.ArchiveModelAdded.resources
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Migrations.CountPropAddedToBooks.resources
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Migrations.CountFixed.resources
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Migrations.ArciveModelDeleted.resources
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Migrations.CountAddedToOrders.resources

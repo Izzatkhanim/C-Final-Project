@@ -43,7 +43,8 @@ namespace Library.Forms
                                  item.Book.Title,
                                  item.Date,
                                  item.Deadline,
-                                 item.Book.Price);
+                                 item.Book.Price,
+                                 item.Count);
             }
         }
 
@@ -78,7 +79,8 @@ namespace Library.Forms
                                          item.Title,
                                          item.Author,
                                          item.Genre,
-                                         item.Price);
+                                         item.Price,
+                                         item.Count);
             }
 
             foreach (var item in ShowBooks)
@@ -87,7 +89,8 @@ namespace Library.Forms
                                          item.Title,
                                          item.Author,
                                          item.Genre,
-                                         item.Price);
+                                         item.Price,
+                                         item.Count);
             }
         }
 
@@ -175,7 +178,9 @@ namespace Library.Forms
 
         private void BtnClientOrder_Click(object sender, EventArgs e)
         {
+
             
+         
             DgvCart.Rows.Add(_selectedClient.Id,
                              _selectedClient.Name,
                              _selectedClient.Lastname,
@@ -183,23 +188,33 @@ namespace Library.Forms
                              _selectedBook.Title,
                               DateTime.Now.ToString("MM.dd.yyyy"),
                               DtpDeadline.Value,
-                              _selectedBook.Price);
+                              _selectedBook.Price,
+                              _selectedBook.Count);
 
             Order order = new Order
             {
                 ClientId = _selectedClient.Id,
                 Date = DateTime.Now,
                 Deadline = DtpDeadline.Value,
-                BookId = _selectedBook.Id
+                BookId = _selectedBook.Id,
+                Count = Convert.ToInt32(TxtNewOrderBookCount.Text)
 
-
+                
             };
             _context.Orders.Add(order);
+            _selectedBook.Count -= Convert.ToInt32(TxtNewOrderBookCount.Text);
             _context.SaveChanges();
+            DgvBookSearch.Rows.Clear();
+            DgvOrderBook.Rows.Clear();
+            DgvCart.Rows.Clear();
+            TxtNewOrderBookCount.Clear();
+            FillOrderData();
+            FillBookData();
         }
-                                 
+        int rowIndex;                        
         private void DgvOrderClient_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             int id = Convert.ToInt32(DgvOrderClient.Rows[e.RowIndex].Cells[0].Value.ToString());
             _selectedClient = _context.Clients.Find(id);
             
@@ -222,10 +237,11 @@ namespace Library.Forms
             int id = Convert.ToInt32(DgvBookSearch.Rows[e.RowIndex].Cells[0].Value.ToString());
             _selectedBook = _context.Books.Find(id);
         }
-
+        int id;
         private void DgvCart_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int id = Convert.ToInt32(DgvCart.Rows[e.RowIndex].Cells[0].Value.ToString());
+            rowIndex = e.RowIndex;
+            id = Convert.ToInt32(DgvCart.Rows[e.RowIndex].Cells[0].Value.ToString());
             _selectedOrder = _context.Orders.Find(id);
         }
 
@@ -248,17 +264,22 @@ namespace Library.Forms
                     MessageBox.Show("Please choose an order.");
                 }
 
-                Archive archive = new Archive
-                {
-                    OrderId = _selectedOrder.Id
-                };
-                _context.Archives.Add(archive);
-                _context.SaveChanges();
 
-                //_context.Orders.Remove(_selectedOrder);
-                //_context.SaveChanges();
-                //DgvCart.Rows.Clear();
-                //FillOrderData();
+
+
+
+                Order doneOrder = _context.Orders.FirstOrDefault(d => d.Id == id);
+                var countBook = _context.Books.Where(b => b.Id == _selectedOrder.Book.Id).First().Count;
+                var resultCount= countBook+_selectedOrder.Count;
+                _context.Books.Where(b => b.Id == _selectedOrder.Book.Id).First().Count = resultCount;
+                DgvCart.Rows.RemoveAt(rowIndex);
+                doneOrder.IsDone = true;
+                _context.SaveChanges();
+                DgvBookSearch.Rows.Clear();
+                DgvOrderBook.Rows.Clear();
+                DgvCart.Rows.Clear();
+                FillOrderData();
+                FillBookData();
             }          
         }
 

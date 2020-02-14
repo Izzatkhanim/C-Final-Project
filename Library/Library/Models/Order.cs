@@ -27,6 +27,12 @@ namespace Library.Models
         [Required]
         public DateTime Deadline { get; set; }
 
+        [Required]
+        public int Count { get; set; }
+
+        [Required]
+        public bool IsDone { get; set; }
+
         public Client Client { get; set; }
         public Book Book { get; set; }
     }

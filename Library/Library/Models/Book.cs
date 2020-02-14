@@ -28,5 +28,8 @@ namespace Library.Models
         [Required]
          public decimal Price { get; set; }
 
+         [Required]
+         public int Count { get; set; }
+
     }
 }

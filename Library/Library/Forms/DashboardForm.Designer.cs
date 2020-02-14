@@ -45,6 +45,7 @@
             this.AuthorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GenreName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtBookSearch = new System.Windows.Forms.TextBox();
@@ -56,8 +57,9 @@
             this.ClientOrderEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReturnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookReturnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DgvClientSearch = new System.Windows.Forms.DataGridView();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,6 +73,7 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClientEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.DgvOrderBook = new System.Windows.Forms.DataGridView();
@@ -78,9 +81,15 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DtpDeadline = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.TxtNewOrderBookCount = new System.Windows.Forms.TextBox();
+            this.TxtNewOrderClientSearch = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvBookSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvCart)).BeginInit();
@@ -115,7 +124,7 @@
             // 
             // BtnOrderSearch
             // 
-            this.BtnOrderSearch.Location = new System.Drawing.Point(392, 819);
+            this.BtnOrderSearch.Location = new System.Drawing.Point(393, 820);
             this.BtnOrderSearch.Name = "BtnOrderSearch";
             this.BtnOrderSearch.Size = new System.Drawing.Size(124, 46);
             this.BtnOrderSearch.TabIndex = 14;
@@ -125,14 +134,14 @@
             // 
             // TxtOrderSearch
             // 
-            this.TxtOrderSearch.Location = new System.Drawing.Point(34, 829);
+            this.TxtOrderSearch.Location = new System.Drawing.Point(3, 840);
             this.TxtOrderSearch.Name = "TxtOrderSearch";
             this.TxtOrderSearch.Size = new System.Drawing.Size(312, 26);
             this.TxtOrderSearch.TabIndex = 13;
             // 
             // BtnReturnBook
             // 
-            this.BtnReturnBook.Location = new System.Drawing.Point(553, 819);
+            this.BtnReturnBook.Location = new System.Drawing.Point(558, 820);
             this.BtnReturnBook.Name = "BtnReturnBook";
             this.BtnReturnBook.Size = new System.Drawing.Size(131, 46);
             this.BtnReturnBook.TabIndex = 12;
@@ -142,7 +151,7 @@
             // 
             // BtnBookDelete
             // 
-            this.BtnBookDelete.Location = new System.Drawing.Point(559, 448);
+            this.BtnBookDelete.Location = new System.Drawing.Point(564, 457);
             this.BtnBookDelete.Name = "BtnBookDelete";
             this.BtnBookDelete.Size = new System.Drawing.Size(125, 43);
             this.BtnBookDelete.TabIndex = 11;
@@ -152,7 +161,7 @@
             // 
             // BtnClientDelete
             // 
-            this.BtnClientDelete.Location = new System.Drawing.Point(559, 58);
+            this.BtnClientDelete.Location = new System.Drawing.Point(564, 65);
             this.BtnClientDelete.Name = "BtnClientDelete";
             this.BtnClientDelete.Size = new System.Drawing.Size(125, 40);
             this.BtnClientDelete.TabIndex = 11;
@@ -162,7 +171,7 @@
             // 
             // BtnAddBook
             // 
-            this.BtnAddBook.Location = new System.Drawing.Point(428, 448);
+            this.BtnAddBook.Location = new System.Drawing.Point(433, 457);
             this.BtnAddBook.Name = "BtnAddBook";
             this.BtnAddBook.Size = new System.Drawing.Size(114, 43);
             this.BtnAddBook.TabIndex = 10;
@@ -172,7 +181,7 @@
             // 
             // BtnAddClient
             // 
-            this.BtnAddClient.Location = new System.Drawing.Point(428, 58);
+            this.BtnAddClient.Location = new System.Drawing.Point(433, 65);
             this.BtnAddClient.Name = "BtnAddClient";
             this.BtnAddClient.Size = new System.Drawing.Size(114, 40);
             this.BtnAddClient.TabIndex = 10;
@@ -182,7 +191,7 @@
             // 
             // BtnBookSearch
             // 
-            this.BtnBookSearch.Location = new System.Drawing.Point(297, 448);
+            this.BtnBookSearch.Location = new System.Drawing.Point(302, 457);
             this.BtnBookSearch.Name = "BtnBookSearch";
             this.BtnBookSearch.Size = new System.Drawing.Size(116, 43);
             this.BtnBookSearch.TabIndex = 9;
@@ -192,7 +201,7 @@
             // 
             // BtnClientSearch
             // 
-            this.BtnClientSearch.Location = new System.Drawing.Point(297, 58);
+            this.BtnClientSearch.Location = new System.Drawing.Point(302, 65);
             this.BtnClientSearch.Name = "BtnClientSearch";
             this.BtnClientSearch.Size = new System.Drawing.Size(116, 40);
             this.BtnClientSearch.TabIndex = 8;
@@ -203,7 +212,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(30, 806);
+            this.label3.Location = new System.Drawing.Point(3, 817);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 20);
             this.label3.TabIndex = 6;
@@ -218,12 +227,13 @@
             this.BookName,
             this.AuthorName,
             this.GenreName,
-            this.Column7});
-            this.DgvBookSearch.Location = new System.Drawing.Point(19, 516);
+            this.Column7,
+            this.Column11});
+            this.DgvBookSearch.Location = new System.Drawing.Point(0, 516);
             this.DgvBookSearch.Name = "DgvBookSearch";
             this.DgvBookSearch.RowHeadersWidth = 62;
             this.DgvBookSearch.RowTemplate.Height = 28;
-            this.DgvBookSearch.Size = new System.Drawing.Size(665, 201);
+            this.DgvBookSearch.Size = new System.Drawing.Size(766, 252);
             this.DgvBookSearch.TabIndex = 5;
             this.DgvBookSearch.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvBookSearch_RowHeaderMouseClick);
             // 
@@ -258,10 +268,16 @@
             this.Column7.MinimumWidth = 8;
             this.Column7.Name = "Column7";
             // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Count";
+            this.Column11.MinimumWidth = 8;
+            this.Column11.Name = "Column11";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 433);
+            this.label2.Location = new System.Drawing.Point(3, 442);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 20);
             this.label2.TabIndex = 4;
@@ -270,7 +286,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 42);
+            this.label1.Location = new System.Drawing.Point(3, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 20);
             this.label1.TabIndex = 3;
@@ -278,14 +294,14 @@
             // 
             // TxtBookSearch
             // 
-            this.TxtBookSearch.Location = new System.Drawing.Point(28, 456);
+            this.TxtBookSearch.Location = new System.Drawing.Point(7, 465);
             this.TxtBookSearch.Name = "TxtBookSearch";
             this.TxtBookSearch.Size = new System.Drawing.Size(250, 26);
             this.TxtBookSearch.TabIndex = 2;
             // 
             // TxtClientSearch
             // 
-            this.TxtClientSearch.Location = new System.Drawing.Point(34, 65);
+            this.TxtClientSearch.Location = new System.Drawing.Point(7, 72);
             this.TxtClientSearch.Name = "TxtClientSearch";
             this.TxtClientSearch.Size = new System.Drawing.Size(244, 26);
             this.TxtClientSearch.TabIndex = 2;
@@ -301,13 +317,14 @@
             this.ClientOrderEmail,
             this.dataGridViewTextBoxColumn4,
             this.Column5,
-            this.ReturnDate,
-            this.Column6});
-            this.DgvCart.Location = new System.Drawing.Point(28, 882);
+            this.BookReturnDate,
+            this.Column6,
+            this.Column10});
+            this.DgvCart.Location = new System.Drawing.Point(0, 882);
             this.DgvCart.Name = "DgvCart";
             this.DgvCart.RowHeadersWidth = 62;
             this.DgvCart.RowTemplate.Height = 28;
-            this.DgvCart.Size = new System.Drawing.Size(665, 212);
+            this.DgvCart.Size = new System.Drawing.Size(766, 240);
             this.DgvCart.TabIndex = 1;
             this.DgvCart.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCart_CellClick);
             // 
@@ -348,17 +365,23 @@
             this.Column5.MinimumWidth = 8;
             this.Column5.Name = "Column5";
             // 
-            // ReturnDate
+            // BookReturnDate
             // 
-            this.ReturnDate.HeaderText = "Return Date";
-            this.ReturnDate.MinimumWidth = 8;
-            this.ReturnDate.Name = "ReturnDate";
+            this.BookReturnDate.HeaderText = "Return Date";
+            this.BookReturnDate.MinimumWidth = 8;
+            this.BookReturnDate.Name = "BookReturnDate";
             // 
             // Column6
             // 
             this.Column6.HeaderText = "Price";
             this.Column6.MinimumWidth = 8;
             this.Column6.Name = "Column6";
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Count";
+            this.Column10.MinimumWidth = 8;
+            this.Column10.Name = "Column10";
             // 
             // DgvClientSearch
             // 
@@ -369,11 +392,11 @@
             this.Column1,
             this.Column2,
             this.Column4});
-            this.DgvClientSearch.Location = new System.Drawing.Point(24, 126);
+            this.DgvClientSearch.Location = new System.Drawing.Point(0, 126);
             this.DgvClientSearch.Name = "DgvClientSearch";
             this.DgvClientSearch.RowHeadersWidth = 62;
             this.DgvClientSearch.RowTemplate.Height = 28;
-            this.DgvClientSearch.Size = new System.Drawing.Size(665, 212);
+            this.DgvClientSearch.Size = new System.Drawing.Size(766, 229);
             this.DgvClientSearch.TabIndex = 1;
             this.DgvClientSearch.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvClientSearch_RowHeaderMouseClick);
             // 
@@ -398,13 +421,13 @@
             // 
             // Column4
             // 
-            this.Column4.HeaderText = "Books";
+            this.Column4.HeaderText = "Phone";
             this.Column4.MinimumWidth = 8;
             this.Column4.Name = "Column4";
             // 
             // BtnClientOrder
             // 
-            this.BtnClientOrder.Location = new System.Drawing.Point(1803, 467);
+            this.BtnClientOrder.Location = new System.Drawing.Point(1774, 478);
             this.BtnClientOrder.Name = "BtnClientOrder";
             this.BtnClientOrder.Size = new System.Drawing.Size(131, 48);
             this.BtnClientOrder.TabIndex = 7;
@@ -423,7 +446,7 @@
             this.label4.AutoSize = true;
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label4.Font = new System.Drawing.Font("Schadow BT", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1444, 38);
+            this.label4.Location = new System.Drawing.Point(1432, 20);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(268, 54);
             this.label4.TabIndex = 8;
@@ -437,7 +460,8 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
-            this.ClientEmail});
+            this.ClientEmail,
+            this.Column8});
             this.DgvOrderClient.Location = new System.Drawing.Point(883, 195);
             this.DgvOrderClient.Name = "DgvOrderClient";
             this.DgvOrderClient.RowHeadersWidth = 62;
@@ -471,11 +495,17 @@
             this.ClientEmail.MinimumWidth = 8;
             this.ClientEmail.Name = "ClientEmail";
             // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Phone";
+            this.Column8.MinimumWidth = 8;
+            this.Column8.Name = "Column8";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(878, 159);
+            this.label5.Location = new System.Drawing.Point(1178, 118);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 26);
             this.label5.TabIndex = 9;
@@ -485,7 +515,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(1629, 158);
+            this.label6.Location = new System.Drawing.Point(1957, 118);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 26);
             this.label6.TabIndex = 10;
@@ -499,7 +529,9 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11});
+            this.dataGridViewTextBoxColumn11,
+            this.Column9,
+            this.Column12});
             this.DgvOrderBook.Location = new System.Drawing.Point(1634, 195);
             this.DgvOrderBook.Name = "DgvOrderBook";
             this.DgvOrderBook.RowHeadersWidth = 62;
@@ -533,6 +565,18 @@
             this.dataGridViewTextBoxColumn11.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Price";
+            this.Column9.MinimumWidth = 8;
+            this.Column9.Name = "Column9";
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Count";
+            this.Column12.MinimumWidth = 8;
+            this.Column12.Name = "Column12";
+            // 
             // DtpDeadline
             // 
             this.DtpDeadline.Location = new System.Drawing.Point(1444, 487);
@@ -554,9 +598,41 @@
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 1290);
+            this.splitter1.Size = new System.Drawing.Size(3, 1316);
             this.splitter1.TabIndex = 13;
             this.splitter1.TabStop = false;
+            // 
+            // TxtNewOrderBookCount
+            // 
+            this.TxtNewOrderBookCount.Location = new System.Drawing.Point(1688, 163);
+            this.TxtNewOrderBookCount.Name = "TxtNewOrderBookCount";
+            this.TxtNewOrderBookCount.Size = new System.Drawing.Size(236, 26);
+            this.TxtNewOrderBookCount.TabIndex = 14;
+            // 
+            // TxtNewOrderClientSearch
+            // 
+            this.TxtNewOrderClientSearch.Location = new System.Drawing.Point(936, 163);
+            this.TxtNewOrderClientSearch.Name = "TxtNewOrderClientSearch";
+            this.TxtNewOrderClientSearch.Size = new System.Drawing.Size(236, 26);
+            this.TxtNewOrderClientSearch.TabIndex = 14;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(879, 166);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(51, 20);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Name";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(1630, 166);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(52, 20);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Count";
             // 
             // Dashboard
             // 
@@ -564,7 +640,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.ClientSize = new System.Drawing.Size(2249, 1316);
+            this.ClientSize = new System.Drawing.Size(2249, 1342);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.TxtNewOrderClientSearch);
+            this.Controls.Add(this.TxtNewOrderBookCount);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.DtpDeadline);
@@ -617,25 +697,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView DgvOrderBook;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DateTimePicker DtpDeadline;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClientOrderEmail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReturnDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn BookId;
         private System.Windows.Forms.DataGridViewTextBoxColumn BookName;
         private System.Windows.Forms.DataGridViewTextBoxColumn AuthorName;
@@ -644,5 +708,30 @@
         private System.Windows.Forms.Button BtnReturnBook;
         private System.Windows.Forms.Button BtnOrderSearch;
         private System.Windows.Forms.TextBox TxtOrderSearch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClientOrderEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BookReturnDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.TextBox TxtNewOrderBookCount;
+        private System.Windows.Forms.TextBox TxtNewOrderClientSearch;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
     }
 }

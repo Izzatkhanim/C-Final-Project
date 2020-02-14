@@ -26,9 +26,13 @@ namespace Library.Forms
 
         private void BtnAddNewBook_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(TxtNewBookAuthor.Text) ||
-             !string.IsNullOrEmpty(TxtNewBookGenre.Text) ||
-             !string.IsNullOrEmpty(TxtNewBookTitle.Text))
+            if (!string.IsNullOrEmpty(TxtNewBookAuthor.Text)||
+                !string.IsNullOrEmpty(TxtNewBookGenre.Text) ||
+                !string.IsNullOrEmpty(TxtNewBookTitle.Text) ||
+                !string.IsNullOrEmpty(TxtNewBookCount.Text) ||
+                !string.IsNullOrEmpty(TxtNewBookPrice.Text))
+
+
             {
 
                 Book book = new Book
@@ -38,6 +42,9 @@ namespace Library.Forms
                     Title = TxtNewBookTitle.Text,
                     Genre = TxtNewBookGenre.Text,
                     Author = TxtNewBookAuthor.Text,
+                    Count = Convert.ToInt32(TxtNewBookCount.Text),
+                    Price = Convert.ToDecimal(TxtNewBookPrice.Text)
+                    
                    
                 };
                 _context.Books.Add(book);
