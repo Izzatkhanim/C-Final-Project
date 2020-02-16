@@ -118,6 +118,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvOrderClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvOrderBook)).BeginInit();
             this.TabControl1.SuspendLayout();
@@ -943,6 +944,18 @@
             this.Column4.MinimumWidth = 8;
             this.Column4.Name = "Column4";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(985, 678);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(181, 79);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Bills";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -951,6 +964,7 @@
             this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.BackgroundImage = global::Library.Properties.Resources.dashboard1;
             this.ClientSize = new System.Drawing.Size(2327, 1237);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.BtnNewOrderClientSearch);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.TabControl1);
@@ -1080,5 +1094,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column26;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column27;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column28;
+        private System.Windows.Forms.Button button1;
     }
 }

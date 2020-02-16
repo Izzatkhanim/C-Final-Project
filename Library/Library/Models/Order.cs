@@ -32,6 +32,10 @@ namespace Library.Models
 
         [Required]
         public bool IsDone { get; set; }
+                
+        public DateTime? ReturnDate { get; set; }
+
+        public decimal? ReturnPrice { get; set; }
 
         public Client Client { get; set; }
         public Book Book { get; set; }

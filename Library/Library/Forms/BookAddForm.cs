@@ -23,9 +23,11 @@ namespace Library.Forms
             _context = new LibraryDbContext();
             InitializeComponent();
         }
-
+        ////kitab elave etmek
         private void BtnAddNewBook_Click(object sender, EventArgs e)
         {
+
+            //textboxlarin bosh olmamagini yoxlamaq uchun if 
             if (!string.IsNullOrEmpty(TxtNewBookAuthor.Text)||
                 !string.IsNullOrEmpty(TxtNewBookGenre.Text) ||
                 !string.IsNullOrEmpty(TxtNewBookTitle.Text) ||
@@ -34,7 +36,7 @@ namespace Library.Forms
 
 
             {
-
+                //yaradilan kitabi database elave etmek uchun
                 Book book = new Book
                 {
 

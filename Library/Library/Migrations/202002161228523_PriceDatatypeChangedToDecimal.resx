@@ -117,29 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="exform3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exform3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Target" xml:space="preserve">
+    <value>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</value>
   </data>
-  <data name="PnlPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PnlPic.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Addlient" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Addlient.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LoginForm" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LoginForm.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AddBookForm" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AddBookForm.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dashboard1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dashboard1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ExportForm" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ExportForm.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="exform4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exform4.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DefaultSchema" xml:space="preserve">
+    <value>dbo</value>
   </data>
 </root>

@@ -26,8 +26,10 @@ namespace Library.Forms
             InitializeComponent();
         }
 
+        //Login button-un clickinde
         private void BtnLogin_Click(object sender, EventArgs e)
         {
+            //TxtEmail ve password textboxunun bosh olmamagini yoxlamaq uchun
             if (string.IsNullOrEmpty(TxtEmail.Text))
             {
                 MessageBox.Show("Please enter your Email.");
@@ -40,10 +42,13 @@ namespace Library.Forms
                 return;
             }
 
+            //idarechi daxil olur
             Manager manager = _context.Managers.FirstOrDefault(m => m.Status && m.Email == TxtEmail.Text && m.Password == TxtPassword.Text);
 
             if (manager != null)
             {
+
+                //Dashboard formunun achilmagi
                 Dashboard dashboard = new Dashboard();
                 dashboard.Show();
                 this.Hide();

@@ -36,11 +36,16 @@ namespace Library.Forms
         //Gecikenler tabinin dgv-sini doldurmaq uchun fill
         private void FillLateReturns()
         {
+            DateTime now = DateTime.Now;
             var LateReturn = _context.Orders.
                        Include("Book").
                        Include("Client").
-                       Where(d => d.Deadline < DateTime.Now).
-                       ToList();
+                       Where(d => d.Deadline.Year <= now.Year &&
+                                       d.Deadline.Month <= now.Month &&
+                                       d.Deadline.Day < now.Day &&
+                                       d.IsDone == false)
+                                       .ToList();
+
             foreach (var item in LateReturn)
             {
                 DgvLateReturns.Rows.Add(item.Id,
@@ -51,6 +56,7 @@ namespace Library.Forms
             }
         }
 
+        //Sabah getirecekler tabinin dgv-sini doldurmaq uchun fill
         private void FillTomorrowsReturns()
         {
             DateTime tomorrow = DateTime.Today.AddDays(1);
@@ -59,7 +65,8 @@ namespace Library.Forms
                            Include("Client").
                            Where(d =>  d.Deadline.Year == tomorrow.Year &&
                                        d.Deadline.Month == tomorrow.Month &&
-                                       d.Deadline.Day == tomorrow.Day).
+                                       d.Deadline.Day == tomorrow.Day &&
+                                       d.IsDone == false).
                            ToList();
             foreach (var item in ReturnTomorrow)
             {
@@ -71,6 +78,7 @@ namespace Library.Forms
             }
         }
 
+        //Bugun getirecekler tabinin dgv-sini doldurmaq uchun fill
         private void FillTodaysReturns()
         {
             DateTime now = DateTime.Now;
@@ -79,7 +87,8 @@ namespace Library.Forms
                                   Include("Client").
                                   Where(d => d.Deadline.Year == now.Year &&
                                        d.Deadline.Month == now.Month &&
-                                       d.Deadline.Day == now.Day).
+                                       d.Deadline.Day == now.Day &&
+                                       d.IsDone == false).
                                   ToList();
             foreach (var item in ReturnToday)
             {
@@ -91,14 +100,17 @@ namespace Library.Forms
             }
         }
 
+        //sifarishleri databaseden chagirib dgv-e yazmaq uchun
         private void FillOrderData()
         {
-            var ShowOrders = _context.Orders.ToList();
-            //var notDoneOrder = _context.Orders.FirstOrDefault(d => d.IsDone == false);
-            
-            //if (notDoneOrder.IsDone != true)
-            //{
-             foreach (var item in ShowOrders)
+           
+            var notDoneOrder = _context.Orders
+                                             .Include("Book")
+                                             .Include("Client")
+                                             .Where(n => n.IsDone == false)
+                                             .ToList();
+
+            foreach (var item in notDoneOrder)
             {
                 DgvCart.Rows.Add(item.Id,
                                  item.Client.Name,
@@ -110,10 +122,10 @@ namespace Library.Forms
                                  item.Book.Price,
                                  item.Count);
             }
-            //}
-           
+                       
         }
 
+        //Clientleri databaseden chagirib dgv-e yazmaq uchun
         private void FillClientData()
         {
             var ShowClients = _context.Clients.ToList();
@@ -136,6 +148,7 @@ namespace Library.Forms
             }
         }
 
+        //Kitablari databaseden chagirib dgv-e yazmaq uchun
         private void FillBookData()
         {
             var ShowBooks = _context.Books.ToList();
@@ -161,6 +174,7 @@ namespace Library.Forms
             }
         }
 
+        //Clientin adini yazaraq search-e basib onu tapmag
         private void BtnClientSearch_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(TxtClientSearch.Text))
@@ -187,6 +201,7 @@ namespace Library.Forms
          
         }
 
+        //Client elave etmek
         private void BtnAddClient_Click(object sender, EventArgs e)
         {
             ClientAddForm clientAddForm = new ClientAddForm();
@@ -194,6 +209,7 @@ namespace Library.Forms
             return;
         }
 
+        //Kitab elave etmek
         private void BtnAddBook_Click(object sender, EventArgs e)
         {
             BookAddForm bookAddForm = new BookAddForm();
@@ -202,6 +218,7 @@ namespace Library.Forms
             return;
         }
 
+        //Kitabin adi ile axtarishi
         private void BtnBookSearch_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(TxtBookSearch.Text))
@@ -226,6 +243,7 @@ namespace Library.Forms
             }
         }
 
+        //Clientin silinmesi
         private void BtnClientDelete_Click(object sender, EventArgs e)
         {
             _context.Clients.Remove(_selectedClient);
@@ -235,6 +253,7 @@ namespace Library.Forms
 
          }
 
+        //Kitabin silinmesi
         private void BtnBookDelete_Click(object sender, EventArgs e)
         {
             _context.Books.Remove(_selectedBook);
@@ -243,6 +262,7 @@ namespace Library.Forms
             FillBookData();
         }
 
+        //Yeni orderin yaranmasi
         private void BtnClientOrder_Click(object sender, EventArgs e)
         {
 
@@ -257,14 +277,15 @@ namespace Library.Forms
                               DateTime.Now.ToString("MM.dd.yyyy"),
                               DtpDeadline.Value,
                               _selectedBook.Price,
-                              _selectedBook.Count);
+                              TxtNewOrderBookCount.Text);
             }
             catch (System.NullReferenceException)
             {
                 MessageBox.Show("Please choose and fill out everything.");
+                return;
             }
-            return;
-                               
+
+
             Order order = new Order
             {
                 ClientId = _selectedClient.Id,
@@ -272,9 +293,10 @@ namespace Library.Forms
                 Deadline = DtpDeadline.Value,
                 BookId = _selectedBook.Id,
                 IsDone = false,
-                Count = Convert.ToInt32(TxtNewOrderBookCount.Text)
+                Count = Convert.ToInt32(TxtNewOrderBookCount.Text),
+                ReturnDate = null,
+                ReturnPrice = null
 
-                
             };
             _context.Orders.Add(order);
             _selectedBook.Count -= Convert.ToInt32(TxtNewOrderBookCount.Text);
@@ -292,7 +314,9 @@ namespace Library.Forms
             FillTomorrowsReturns();
             FillLateReturns();
         }
-        int rowIndex;                        
+        int rowIndex;          
+        
+        //Yeni sifarish bolgusunde client olan dgv-de cell clickinde id-nin alinmasi
         private void DgvOrderClient_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             
@@ -301,24 +325,29 @@ namespace Library.Forms
             
         }
 
+        //Yeni sifarish bolgusunde kitab olan dgv-de cell clickinde id-nin alinmasi
         private void DgvOrderBook_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int id = Convert.ToInt32(DgvOrderBook.Rows[e.RowIndex].Cells[0].Value.ToString());
             _selectedBook = _context.Books.Find(id);
         }
 
+        //Client search bolgusunde client olan dgv-de RowHeaderMouseClick clickinde id-nin alinmasi
         private void DgvClientSearch_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         { 
             int id = Convert.ToInt32(DgvClientSearch.Rows[e.RowIndex].Cells[0].Value.ToString());
             _selectedClient = _context.Clients.Find(id);
         }
 
+        //Book search bolgusunde book olan dgv-de RowHeaderMouseClick clickinde id-nin alinmasi
         private void DgvBookSearch_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int id = Convert.ToInt32(DgvBookSearch.Rows[e.RowIndex].Cells[0].Value.ToString());
             _selectedBook = _context.Books.Find(id);
         }
         int id;
+
+        //Order bolgusunde client olan dgv-de cell clickinde id-nin alinmasi
         private void DgvCart_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             rowIndex = e.RowIndex;
@@ -326,36 +355,47 @@ namespace Library.Forms
             _selectedOrder = _context.Orders.Find(id);
         }
 
+        //Kitabin qaytarilma metodu
         private void BtnReturnBook_Click(object sender, EventArgs e)
-        {   
-
+        {
+            DateTime now = DateTime.Now;
             double prc = Convert.ToInt32(_selectedOrder.Book.Price);
-
+            
             if (DgvCart.SelectedRows != null)
             {
-                if (_selectedOrder.Deadline > DateTime.Now)
+                if (_selectedOrder.Deadline.Year >= now.Year &&
+                     _selectedOrder.Deadline.Month >= now.Month &&
+                     _selectedOrder.Deadline.Day >= now.Day)
                 {
-                       MessageBox.Show("Your bill is" + " " + _selectedOrder.Book.Price);
+                       MessageBox.Show("Your bill is" + " " + (prc)*_selectedOrder.Count);
+                       
                 }
-                else if(_selectedOrder.Deadline < DateTime.Now)
+                else if(_selectedOrder.Deadline.Year <= now.Year &&
+                        _selectedOrder.Deadline.Month <= now.Month &&
+                        _selectedOrder.Deadline.Day < now.Day)
                 {
-                MessageBox.Show("Your bill is" + " " + ((prc*0.005)+prc));
+                       MessageBox.Show("Your bill is" + " " + (((prc*0.005)+prc))* _selectedOrder.Count);
+                       
                 }
-                else
-                {
-                    MessageBox.Show("Please choose an order.");
-                }
-
-
-
-
-
+           
                 Order doneOrder = _context.Orders.FirstOrDefault(d => d.Id == id);
+                Order returnDate = _context.Orders.FirstOrDefault(q => q.ReturnDate == DateTime.Now);
+                if (Convert.ToDateTime(returnDate) <= _selectedOrder.Deadline)
+                {
+                    _selectedOrder.ReturnPrice = _selectedOrder.Book.Price;
+
+                }
+                else if (Convert.ToDateTime(returnDate) > _selectedOrder.Deadline)
+                {
+                    _selectedOrder.ReturnPrice = Convert.ToDecimal(((prc * 0.005) + prc) * _selectedOrder.Count);
+                }
+
                 var countBook = _context.Books.Where(b => b.Id == _selectedOrder.Book.Id).First().Count;
                 var resultCount= countBook+_selectedOrder.Count;
                 _context.Books.Where(b => b.Id == _selectedOrder.Book.Id).First().Count = resultCount;
                 DgvCart.Rows.RemoveAt(rowIndex);
                 doneOrder.IsDone = true;
+                _selectedOrder.ReturnDate = DateTime.Now;
                 _context.SaveChanges();
                 DgvBookSearch.Rows.Clear();
                 DgvOrderBook.Rows.Clear();
@@ -368,9 +408,16 @@ namespace Library.Forms
                 FillTodaysReturns();
                 FillTomorrowsReturns();
                 FillLateReturns();
-            }          
+                
+            }
+            else
+            {
+                MessageBox.Show("Please choose an order.");
+                return;
+            }
         }
 
+        //Sifarishi clientin adi ile axtarma metodu
         private void BtnOrderSearch_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(TxtOrderSearch.Text))
@@ -399,6 +446,7 @@ namespace Library.Forms
             }
         }
 
+        //Yeni Sifarish bolgusunde clienti adi ile axtarma metodu
         private void BtnNewOrderClientSearch_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(TxtNewOrderClientSearch.Text))
@@ -424,6 +472,14 @@ namespace Library.Forms
             }
         }
 
+        //Export button-una basanda exportformun achilmasi
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ExportForm exportForm = new ExportForm();
+            exportForm.Show();
+            
+            return;
+        }
     }
 }
 
