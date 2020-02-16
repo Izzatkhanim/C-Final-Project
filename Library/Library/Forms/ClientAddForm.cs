@@ -30,7 +30,8 @@ namespace Library.Forms
             if(!string.IsNullOrEmpty(TxtNewClientName.Text)||
                !string.IsNullOrEmpty(TxtNewClientLastname.Text)||
                !string.IsNullOrEmpty(TxtNewClientEmail.Text)||
-               !string.IsNullOrEmpty(TxtNewClientPassword.Text))
+               !string.IsNullOrEmpty(TxtNewClientPassword.Text)||
+               !string.IsNullOrEmpty(TxtNewtClientPhone.Text))
             {
 
                 Client client = new Client
@@ -41,6 +42,7 @@ namespace Library.Forms
                     Lastname = TxtNewClientLastname.Text,
                     Email = TxtNewClientEmail.Text,
                     Password = TxtNewClientPassword.Text,
+                    Phone = Convert.ToString(TxtNewtClientPhone.Text),
                     Status = true
               };
                      _context.Clients.Add(client);

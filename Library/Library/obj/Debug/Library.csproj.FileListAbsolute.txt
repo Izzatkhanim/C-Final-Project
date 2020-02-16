@@ -27,3 +27,5 @@ C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Migrations.
 C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Migrations.CountFixed.resources
 C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Migrations.ArciveModelDeleted.resources
 C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Migrations.CountAddedToOrders.resources
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Migrations.PhoneAddedToClientModel.resources
+C:\Users\nrzayeva\Desktop\c# Final\Library\Library\obj\Debug\Library.Migrations.PhoneAddedToClientModel1.resources

@@ -27,7 +27,8 @@ namespace Library.Models
         [MinLength(4)]
         public string Password { get; set; }
 
-
+        [Required]
+        public string Phone { get; set; }
 
         [Required]
         public bool Status { get; set; }

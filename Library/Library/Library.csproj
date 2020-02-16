@@ -130,6 +130,14 @@
     <Compile Include="Migrations\202002141617333_CountAddedToOrders.designer.cs">
       <DependentUpon>202002141617333_CountAddedToOrders.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002151945008_PhoneAddedToClientModel.cs" />
+    <Compile Include="Migrations\202002151945008_PhoneAddedToClientModel.designer.cs">
+      <DependentUpon>202002151945008_PhoneAddedToClientModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002152006172_PhoneAddedToClientModel1.cs" />
+    <Compile Include="Migrations\202002152006172_PhoneAddedToClientModel1.designer.cs">
+      <DependentUpon>202002152006172_PhoneAddedToClientModel1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Client.cs" />
@@ -185,6 +193,12 @@
     <EmbeddedResource Include="Migrations\202002141617333_CountAddedToOrders.resx">
       <DependentUpon>202002141617333_CountAddedToOrders.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002151945008_PhoneAddedToClientModel.resx">
+      <DependentUpon>202002151945008_PhoneAddedToClientModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002152006172_PhoneAddedToClientModel1.resx">
+      <DependentUpon>202002152006172_PhoneAddedToClientModel1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -193,6 +207,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -208,7 +223,21 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\LoginForm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PnlPic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddBookForm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Addlient.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

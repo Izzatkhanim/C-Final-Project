@@ -28,13 +28,77 @@ namespace Library.Forms
             FillClientData();
             FillBookData();
             FillOrderData();
+            FillTodaysReturns();
+            FillTomorrowsReturns();
+            FillLateReturns();
+        }
+
+        //Gecikenler tabinin dgv-sini doldurmaq uchun fill
+        private void FillLateReturns()
+        {
+            var LateReturn = _context.Orders.
+                       Include("Book").
+                       Include("Client").
+                       Where(d => d.Deadline < DateTime.Now).
+                       ToList();
+            foreach (var item in LateReturn)
+            {
+                DgvLateReturns.Rows.Add(item.Id,
+                                           item.Client.Name,
+                                           item.Client.Lastname,
+                                           item.Client.Phone,
+                                           item.Count);
+            }
+        }
+
+        private void FillTomorrowsReturns()
+        {
+            DateTime tomorrow = DateTime.Today.AddDays(1);
+            var ReturnTomorrow = _context.Orders.
+                           Include("Book").
+                           Include("Client").
+                           Where(d =>  d.Deadline.Year == tomorrow.Year &&
+                                       d.Deadline.Month == tomorrow.Month &&
+                                       d.Deadline.Day == tomorrow.Day).
+                           ToList();
+            foreach (var item in ReturnTomorrow)
+            {
+                DgvTomorrowReturn.Rows.Add(item.Id,
+                                           item.Client.Name,
+                                           item.Client.Lastname,
+                                           item.Client.Phone,
+                                           item.Count);
+            }
+        }
+
+        private void FillTodaysReturns()
+        {
+            DateTime now = DateTime.Now;
+            var ReturnToday = _context.Orders.
+                                  Include("Book").
+                                  Include("Client").
+                                  Where(d => d.Deadline.Year == now.Year &&
+                                       d.Deadline.Month == now.Month &&
+                                       d.Deadline.Day == now.Day).
+                                  ToList();
+            foreach (var item in ReturnToday)
+            {
+                DgvTodayReturns.Rows.Add(item.Id,
+                                         item.Client.Name,
+                                         item.Client.Lastname,
+                                         item.Client.Phone,
+                                         item.Count);
+            }
         }
 
         private void FillOrderData()
         {
             var ShowOrders = _context.Orders.ToList();
-
-            foreach (var item in ShowOrders)
+            //var notDoneOrder = _context.Orders.FirstOrDefault(d => d.IsDone == false);
+            
+            //if (notDoneOrder.IsDone != true)
+            //{
+             foreach (var item in ShowOrders)
             {
                 DgvCart.Rows.Add(item.Id,
                                  item.Client.Name,
@@ -46,6 +110,8 @@ namespace Library.Forms
                                  item.Book.Price,
                                  item.Count);
             }
+            //}
+           
         }
 
         private void FillClientData()
@@ -57,7 +123,8 @@ namespace Library.Forms
                 DgvClientSearch.Rows.Add(item.Id,
                                          item.Name,
                                          item.Lastname,
-                                         item.Book);
+                                         item.Email,
+                                         item.Phone);
             }
 
             foreach (var item in ShowClients)
@@ -179,9 +246,10 @@ namespace Library.Forms
         private void BtnClientOrder_Click(object sender, EventArgs e)
         {
 
-            
-         
-            DgvCart.Rows.Add(_selectedClient.Id,
+
+            try
+            {
+               DgvCart.Rows.Add(_selectedClient.Id,
                              _selectedClient.Name,
                              _selectedClient.Lastname,
                              _selectedClient.Email,
@@ -190,13 +258,20 @@ namespace Library.Forms
                               DtpDeadline.Value,
                               _selectedBook.Price,
                               _selectedBook.Count);
-
+            }
+            catch (System.NullReferenceException)
+            {
+                MessageBox.Show("Please choose and fill out everything.");
+            }
+            return;
+                               
             Order order = new Order
             {
                 ClientId = _selectedClient.Id,
                 Date = DateTime.Now,
                 Deadline = DtpDeadline.Value,
                 BookId = _selectedBook.Id,
+                IsDone = false,
                 Count = Convert.ToInt32(TxtNewOrderBookCount.Text)
 
                 
@@ -207,9 +282,15 @@ namespace Library.Forms
             DgvBookSearch.Rows.Clear();
             DgvOrderBook.Rows.Clear();
             DgvCart.Rows.Clear();
+            DgvTodayReturns.Rows.Clear();
+            DgvTomorrowReturn.Rows.Clear();
+            DgvLateReturns.Rows.Clear();
             TxtNewOrderBookCount.Clear();
             FillOrderData();
             FillBookData();
+            FillTodaysReturns();
+            FillTomorrowsReturns();
+            FillLateReturns();
         }
         int rowIndex;                        
         private void DgvOrderClient_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -247,6 +328,7 @@ namespace Library.Forms
 
         private void BtnReturnBook_Click(object sender, EventArgs e)
         {   
+
             double prc = Convert.ToInt32(_selectedOrder.Book.Price);
 
             if (DgvCart.SelectedRows != null)
@@ -278,8 +360,14 @@ namespace Library.Forms
                 DgvBookSearch.Rows.Clear();
                 DgvOrderBook.Rows.Clear();
                 DgvCart.Rows.Clear();
+                DgvTodayReturns.Rows.Clear();
+                DgvTomorrowReturn.Rows.Clear();
+                DgvLateReturns.Rows.Clear();
                 FillOrderData();
                 FillBookData();
+                FillTodaysReturns();
+                FillTomorrowsReturns();
+                FillLateReturns();
             }          
         }
 
@@ -310,6 +398,32 @@ namespace Library.Forms
                                  item.Book.Price);
             }
         }
+
+        private void BtnNewOrderClientSearch_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(TxtNewOrderClientSearch.Text))
+            {
+                MessageBox.Show("Please enter the client's name.");
+                return;
+            }
+
+            var client = _context.Clients.Where(c => c.Status &&
+                                               (TxtNewOrderClientSearch.Text != string.Empty ?
+                                               c.Name.Contains(TxtNewOrderClientSearch.Text) : false))
+                                               .ToList();
+
+            DgvOrderClient.Rows.Clear();
+
+            foreach (var item in client)
+            {
+                DgvOrderClient.Rows.Add(item.Id,
+                                         item.Name,
+                                         item.Lastname,
+                                         item.Email,
+                                         item.Phone);
+            }
+        }
+
     }
 }
 
